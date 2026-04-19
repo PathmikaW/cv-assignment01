@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # Load the runway image
 f = cv.imread('Assignment/runway.png', cv.IMREAD_GRAYSCALE)
 
-# ── Custom histogram equalization function ────────────────────────────────
+# -- Custom histogram equalization function-------------------------------
 # Formula (lecture slide 54): s_k = (L-1)/MN * sum(n_j, j=0..k)
 def equalize_hist(img):
     L = 256
@@ -20,16 +20,16 @@ def equalize_hist(img):
     g = t[img]
     return g, hist, t
 
-# ── Apply custom equalization ─────────────────────────────────────────────
+# -- Apply custom equalization--------------------------------------------
 g_eq, hist_orig, t = equalize_hist(f)
 
-# ── Cross-check with OpenCV equalizeHist ──────────────────────────────────
+# -- Cross-check with OpenCV equalizeHist---------------------------------
 g_cv = cv.equalizeHist(f)
 
 # Histogram of equalized image
 hist_eq, _ = np.histogram(g_eq.flatten(), 256, [0, 256])
 
-# ── Display images ────────────────────────────────────────────────────────
+# -- Display images-------------------------------------------------------
 fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
 ax[0].imshow(f, cmap='gray', vmin=0, vmax=255)
@@ -48,16 +48,16 @@ plt.tight_layout()
 plt.savefig('output/q3_images.png', dpi=150, bbox_inches='tight')
 plt.show()
 
-# ── Plot histograms ───────────────────────────────────────────────────────
+# -- Plot histograms------------------------------------------------------
 fig2, ax2 = plt.subplots(1, 2, figsize=(12, 4))
 
 ax2[0].bar(np.arange(256), hist_orig, color='gray', width=1)
-ax2[0].set_title('Histogram — Original Image')
+ax2[0].set_title('Histogram - Original Image')
 ax2[0].set_xlabel('Pixel Intensity')
 ax2[0].set_ylabel('Count')
 
 ax2[1].bar(np.arange(256), hist_eq, color='gray', width=1)
-ax2[1].set_title('Histogram — Equalized Image')
+ax2[1].set_title('Histogram - Equalized Image')
 ax2[1].set_xlabel('Pixel Intensity')
 ax2[1].set_ylabel('Count')
 

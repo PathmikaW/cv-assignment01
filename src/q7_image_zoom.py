@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ── Zoom function ──────────────────────────────────────────────────────────
+# -- Zoom function---------------------------------------------------------
 def zoom_image(img, s, method='nearest'):
     H, W = img.shape
     new_H = int(H * s)
@@ -41,7 +41,7 @@ def zoom_image(img, s, method='nearest'):
     return output
 
 
-# ── Normalized SSD ─────────────────────────────────────────────────────────
+# -- Normalized SSD--------------------------------------------------------
 def normalized_ssd(img1, img2):
     img1 = img1.astype(np.float64)
     img2 = img2.astype(np.float64)
@@ -49,7 +49,7 @@ def normalized_ssd(img1, img2):
     return ssd / img1.size
 
 
-# ── Test images: im01/02/03 pairs + taylor small/very_small vs original ────
+# -- Test images: im01/02/03 pairs + taylor small/very_small vs original---
 pairs = [
     ('Assignment/a1images/a1q7images/im01small.png',
      'Assignment/a1images/a1q7images/im01.png'),
@@ -87,8 +87,8 @@ for small_path, large_path in pairs:
 
     ssd_nn = normalized_ssd(zoomed_nn, large)
     ssd_bl = normalized_ssd(zoomed_bl, large)
-    print(f'  Normalized SSD — Nearest-neighbor: {ssd_nn:.2f}')
-    print(f'  Normalized SSD — Bilinear:         {ssd_bl:.2f}')
+    print(f'  Normalized SSD - Nearest-neighbor: {ssd_nn:.2f}')
+    print(f'  Normalized SSD - Bilinear:         {ssd_bl:.2f}')
 
     # Display
     fig, ax = plt.subplots(1, 4, figsize=(18, 5))

@@ -9,7 +9,7 @@ sigma_s = 10    # spatial standard deviation
 sigma_r = 25    # range (intensity) standard deviation
 d = 9           # kernel diameter
 
-# ── (a) Manual bilateral filter ────────────────────────────────────────────
+# -- (a) Manual bilateral filter-------------------------------------------
 def bilateral_filter(img, d, sigma_s, sigma_r):
     H, W = img.shape
     pad = d // 2
@@ -33,20 +33,20 @@ def bilateral_filter(img, d, sigma_s, sigma_r):
 
     return np.clip(output, 0, 255).astype(np.uint8)
 
-# ── (b) Gaussian smoothing (OpenCV) ───────────────────────────────────────
+# -- (b) Gaussian smoothing (OpenCV)--------------------------------------
 g_gaussian = cv.GaussianBlur(f, (d, d), sigma_s)
 
-# ── (c) Bilateral filter (OpenCV) ─────────────────────────────────────────
+# -- (c) Bilateral filter (OpenCV)----------------------------------------
 g_bilateral_cv = cv.bilateralFilter(f, d, sigma_r, sigma_s)
 
-# ── (d) Manual bilateral filter ───────────────────────────────────────────
+# -- (d) Manual bilateral filter------------------------------------------
 print('Running manual bilateral filter (this may take a moment)...')
 g_bilateral_manual = bilateral_filter(f, d, sigma_s, sigma_r)
 print('Done.')
 
-# ── Display all results ────────────────────────────────────────────────────
+# -- Display all results---------------------------------------------------
 fig, ax = plt.subplots(1, 4, figsize=(18, 5))
-fig.suptitle(f'Bilateral Filter Comparison  (d={d}, σs={sigma_s}, σr={sigma_r})', fontsize=13)
+fig.suptitle(f'Bilateral Filter Comparison  (d={d}, sigmas={sigma_s}, sigmar={sigma_r})', fontsize=13)
 
 ax[0].imshow(f, cmap='gray', vmin=0, vmax=255)
 ax[0].set_title('Original Image')
