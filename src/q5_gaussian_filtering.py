@@ -13,7 +13,7 @@ x, y = np.meshgrid(ax_range, ax_range)
 G5 = np.exp(-(x**2 + y**2) / (2 * sigma**2))
 G5 = G5 / G5.sum()   # normalise so kernel sums to 1
 
-print('5×5 Gaussian kernel (σ=2):')
+print('5x5 Gaussian kernel (sigma=2):')
 print(np.round(G5, 4))
 
 # ── (b) Build 51×51 Gaussian kernel and visualise as 3D surface ───────────

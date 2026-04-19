@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-print('Part (a) — Derivation:')
-print('  ∂G/∂x = -(x/σ²) * G(x,y)')
-print('  ∂G/∂y = -(y/σ²) * G(x,y)')
+print('Part (a) - Derivation:')
+print('  dG/dx = -(x/sigma^2) * G(x,y)')
+print('  dG/dy = -(y/sigma^2) * G(x,y)')
 
 # Load image in grayscale
 f = cv.imread('Assignment/runway.png', cv.IMREAD_GRAYSCALE)
@@ -41,9 +41,9 @@ plt.tight_layout()
 plt.savefig('output/q6b_dog_kernels.png', dpi=150, bbox_inches='tight')
 plt.show()
 
-print('Part (b) — 5×5 DoG-x kernel:')
+print('Part (b) - 5x5 DoG-x kernel:')
 print(np.round(DoGx, 4))
-print('\nPart (b) — 5×5 DoG-y kernel:')
+print('\nPart (b) - 5x5 DoG-y kernel:')
 print(np.round(DoGy, 4))
 
 # ── (c) Visualise 51×51 DoG-x as 3D surface ───────────────────────────────
