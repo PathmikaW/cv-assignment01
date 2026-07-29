@@ -1,7 +1,7 @@
 # IT5437 Computer Vision — Assignment 1
 
 Intensity Transformations and Neighbourhood Filtering
-**Student:** 258843A | [GitHub](https://github.com/PathmikaW/cv-assignment01)
+**MSc in Artificial Intelligence, University of Moratuwa** | [GitHub](https://github.com/PathmikaW/cv-assignment01)
 
 ## Questions
 
